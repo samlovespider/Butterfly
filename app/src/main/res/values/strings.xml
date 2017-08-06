@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Butterfly</string>
+    <!--Fackbook-->
+    <string name="facebook_app_id">1937232573232561</string>
+    <string name="fb_login_protocol_scheme">fb1937232573232561</string>
+
+
 </resources>

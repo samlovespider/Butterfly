@@ -6,10 +6,10 @@ android {
     buildToolsVersion "26.0.0"
     defaultConfig {
         applicationId "com.proproject.butterfly"
-        minSdkVersion 19
+        minSdkVersion 15
         targetSdkVersion 25
         versionCode 1000
-        versionName "1.0.0"
+        versionName "1.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -33,5 +33,7 @@ dependencies {
     // AndroidAnnotations
     annotationProcessor "org.androidannotations:androidannotations:$AAVersion"
     compile "org.androidannotations:androidannotations-api:$AAVersion"
-
+    //---------------
+    // Fackbook
+    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
 }
