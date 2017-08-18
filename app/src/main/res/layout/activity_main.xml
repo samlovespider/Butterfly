@@ -3,14 +3,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.proproject.butterfly.MainActivity">
+    tools:context="com.proproject.butterfly.activities.MainActivity">
+
+
+    <com.proproject.butterfly.views.CustomFrontTextView
+        android:id="@+id/cftvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="ButterFly"
+        android:textSize="40sp" />
+
+    <!--First Line-->
+    <LinearLayout
+        android:id="@+id/linLayFacebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cftvTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/tvFacebook"
+            style="@style/activity_main_textview"
+            android:layout_marginRight="40dp"
+            android:text="@string/activity_main_facebook" />
+
+        <Switch
+            android:id="@+id/swFacebook"
+            style="@style/activity_main_switch" />
+
+    </LinearLayout>
+
+
+    <!--Second Line-->
+    <RelativeLayout
+        android:id="@+id/linLaySnap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linLayFacebook"
+        android:layout_alignRight="@+id/linLayFacebook"
+        android:layout_below="@+id/linLayFacebook"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/tvSnap"
+            style="@style/activity_main_textview"
+            android:layout_alignParentLeft="true"
+            android:text="@string/activity_main_snap" />
+
+        <Switch
+            android:id="@+id/swSnap"
+            style="@style/activity_main_switch"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
 
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp" />
 
 
 </RelativeLayout>

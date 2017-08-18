@@ -8,10 +8,17 @@ public interface MyBaseActivityImp {
     /**
      * init Data
      */
-    public abstract void initData();
+    void initData();
 
     /**
      * init View
      */
-    public abstract void initView();
+    void initView();
+
+    /**
+     * handle EventBus event
+     *
+     * @param event
+     */
+    void handleEvent(Object event);
 }

@@ -5,4 +5,9 @@
     <string name="fb_login_protocol_scheme">fb1937232573232561</string>
 
 
+
+    <string name="activity_main_facebook"><u>Facebook</u></string>
+    <string name="activity_main_snap"><u>Sanp</u></string>
+
+
 </resources>

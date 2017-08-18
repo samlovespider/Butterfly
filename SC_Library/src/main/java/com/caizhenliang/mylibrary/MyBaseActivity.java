@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 /**
  *
@@ -27,6 +28,16 @@ abstract public class MyBaseActivity extends AppCompatActivity implements MyBase
         initView();
     }
 
+    /**
+     * post EventBus event
+     *
+     * @param event
+     */
+    protected void postEvent(Object event) {
+        EventBus.getDefault().post(event);
+    }
+
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -37,15 +48,6 @@ abstract public class MyBaseActivity extends AppCompatActivity implements MyBase
     protected void onStop() {
         EventBus.getDefault().unregister(this);
         super.onStop();
-    }
-
-    /**
-     * post EventBus event
-     *
-     * @param event
-     */
-    protected void postEvent(Object event) {
-        EventBus.getDefault().post(event);
     }
 
     /**
