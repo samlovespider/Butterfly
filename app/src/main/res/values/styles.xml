@@ -2,28 +2,44 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="activity_main_textview">
+
+    <style name="AppThemeNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="activity_main_button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/activity_main_btn</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:padding">15dp</item>
+    </style>
+
+    <style name="activity_accounts_textview">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/activity_main_text_normal</item>
         <item name="android:textSize">20sp</item>
     </style>
-    <style name="activity_main_switch">
+
+    <style name="activity_accounts_switch">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:theme">@style/activity_main_theme_switch</item>
+        <item name="android:theme">@style/activity_accounts_theme_switch</item>
     </style>
 
-    <style name="activity_main_theme_switch" parent="Theme.AppCompat.Light">
+    <style name="activity_accounts_theme_switch" parent="Theme.AppCompat.Light">
         <!-- Active thumb color & Active track color(30% transparency)
             switch 打开时的拇指按钮的颜色 轨迹颜色默认为30%这个颜色 -->
-        <item name="colorControlActivated">@color/greenyellow</item>
+        <item name="colorControlActivated">@color/limegreen</item>
         <!-- Inactive thumb color switch关闭时的拇指按钮的颜色 -->
         <item name="colorSwitchThumbNormal">@color/darkgrey</item>
         <!-- Inactive track color(30% transparency) switch关闭时的轨迹的颜色  30%这个颜色 -->

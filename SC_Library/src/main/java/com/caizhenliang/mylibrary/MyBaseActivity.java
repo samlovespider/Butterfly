@@ -3,9 +3,11 @@ package com.caizhenliang.mylibrary;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
 import org.greenrobot.eventbus.EventBus;
@@ -16,6 +18,7 @@ import org.greenrobot.eventbus.Subscribe;
  */
 abstract public class MyBaseActivity extends AppCompatActivity implements MyBaseActivityImp, MyClickMethodImp {
 
+    protected ActionBar mActionBar;
     protected MyAlertDialogTool myAlertDialogTool;//use to create alertdialog
 
     @Override
@@ -23,6 +26,7 @@ abstract public class MyBaseActivity extends AppCompatActivity implements MyBase
         super.onCreate(savedInstanceState);
         //
         myAlertDialogTool = new MyAlertDialogTool(this);
+        mActionBar = getSupportActionBar();
         //
         initData();
         initView();
@@ -125,5 +129,15 @@ abstract public class MyBaseActivity extends AppCompatActivity implements MyBase
         }
         startActivity(lIntent);
     }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
 }

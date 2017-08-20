@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.MainActivity_">
+        <activity
+            android:name=".MainActivity_"
+            android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,6 +43,10 @@
             </intent-filter>
         </activity>
         <!-- ======================== Facebook End ======================== -->
+        <activity android:name=".activities.AccountsActivity_" />
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.ScanerActivity" />
+        <activity android:name=".activities.QRCodeActivity"></activity>
     </application>
 
 </manifest>

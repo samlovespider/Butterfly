@@ -5,9 +5,14 @@
     <string name="fb_login_protocol_scheme">fb1937232573232561</string>
 
 
-
-    <string name="activity_main_facebook"><u>Facebook</u></string>
-    <string name="activity_main_snap"><u>Sanp</u></string>
+    <!--activity_main-->
+    <string name="activity_main_qrcode">MyQRCode</string>
+    <string name="activity_main_scaner">Scaner</string>
+    <string name="activity_main_accounts">MyAccounts</string>
+    <!--activity_accounts-->
+    <string name="activity_accounts_accounts">Accounts</string>
+    <string name="activity_accounts_facebook"><u>Facebook</u></string>
+    <string name="activity_accounts_snap"><u>Snap</u></string>
 
 
 </resources>
