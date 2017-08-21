@@ -6,6 +6,7 @@ import com.proproject.butterfly.activities.AccountsActivity_;
 import com.proproject.butterfly.baseclasses.BaseActivity;
 import com.proproject.butterfly.views.CustomFrontTextView;
 
+import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;

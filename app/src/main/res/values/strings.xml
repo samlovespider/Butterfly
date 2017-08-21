@@ -13,6 +13,7 @@
     <string name="activity_accounts_accounts">Accounts</string>
     <string name="activity_accounts_facebook"><u>Facebook</u></string>
     <string name="activity_accounts_snap"><u>Snap</u></string>
+    <string name="activity_accounts_instagram"><u>Instagram</u></string>
 
 
 </resources>

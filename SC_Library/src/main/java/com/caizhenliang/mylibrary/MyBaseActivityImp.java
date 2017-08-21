@@ -6,7 +6,7 @@ package com.caizhenliang.mylibrary;
 public interface MyBaseActivityImp {
 
     /**
-     * init Data
+     * init Data, must go first
      */
     void initData();
 
@@ -14,11 +14,4 @@ public interface MyBaseActivityImp {
      * init View
      */
     void initView();
-
-    /**
-     * handle EventBus event
-     *
-     * @param event
-     */
-    void handleEvent(Object event);
 }

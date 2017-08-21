@@ -27,9 +27,6 @@ abstract public class MyBaseActivity extends AppCompatActivity implements MyBase
         //
         myAlertDialogTool = new MyAlertDialogTool(this);
         mActionBar = getSupportActionBar();
-        //
-        initData();
-        initView();
     }
 
     /**

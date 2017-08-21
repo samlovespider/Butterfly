@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.proproject.butterfly.MainActivity">
+    android:layout_height="match_parent">
 
- 
     <!--First Line-->
     <LinearLayout
         android:id="@+id/linLayFacebook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/cftvTitle"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:gravity="center"
         android:padding="20dp">
+
+        <ImageButton
+            android:id="@+id/imgbtnLoginFacebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ic_accounts_logout" />
 
         <TextView
             android:id="@+id/tvFacebook"
@@ -26,9 +29,7 @@
         <Switch
             android:id="@+id/swFacebook"
             style="@style/activity_accounts_switch" />
-
     </LinearLayout>
-
 
     <!--Second Line-->
     <RelativeLayout
@@ -40,17 +41,56 @@
         android:layout_below="@+id/linLayFacebook"
         android:padding="20dp">
 
+        <ImageButton
+            android:id="@+id/imgbtnLoginSnap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ic_accounts_logout" />
+
         <TextView
             android:id="@+id/tvSnap"
             style="@style/activity_accounts_textview"
-            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/imgbtnLoginSnap"
             android:text="@string/activity_accounts_snap" />
 
         <Switch
             android:id="@+id/swSnap"
             style="@style/activity_accounts_switch"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
     </RelativeLayout>
 
+    <!--Third Line-->
+    <RelativeLayout
+        android:id="@+id/linLayInstagram"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linLaySnap"
+        android:layout_alignRight="@+id/linLaySnap"
+        android:layout_below="@+id/linLaySnap"
+        android:padding="20dp">
+
+        <ImageButton
+            android:id="@+id/imgbtnLoginInstagram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ic_accounts_logout" />
+
+        <TextView
+            android:id="@+id/tvInstagram"
+            style="@style/activity_accounts_textview"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/imgbtnLoginInstagram"
+            android:text="@string/activity_accounts_instagram" />
+
+        <Switch
+            android:id="@+id/swInstagram"
+            style="@style/activity_accounts_switch"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -2,22 +2,28 @@ package com.proproject.butterfly.baseclasses;
 
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
 
 import com.caizhenliang.mylibrary.MyBaseActivity;
 
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.EActivity;
 import org.greenrobot.eventbus.Subscribe;
 
 /**
  * Created by caizhenliang on 2017/8/18.
  */
-
+@EActivity
 public abstract class BaseActivity extends MyBaseActivity {
 
-    @Override
-    @Subscribe
-    public void handleEvent(Object event) {
 
-    }
+    @AfterViews
+    @Override
+    abstract public void initData();
+
+    @AfterViews
+    @Override
+    abstract public void initView();
 
     @Override
     public void initMenuItem(MenuItem menuItem) {
@@ -29,6 +35,7 @@ public abstract class BaseActivity extends MyBaseActivity {
 
     }
 
+    @Subscribe
     @Override
     public void initEvent(Object object) {
 
@@ -51,6 +58,11 @@ public abstract class BaseActivity extends MyBaseActivity {
 
     @Override
     public void initItemLongClick(Object object) {
+
+    }
+
+    @Override
+    public void initCheckedChange(CompoundButton button, boolean isChecked) {
 
     }
 }

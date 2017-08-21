@@ -2,6 +2,7 @@ package com.caizhenliang.mylibrary;
 
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
 
 /**
  * Created by caizhenliang on 2017/7/26.
@@ -12,35 +13,43 @@ public interface MyClickMethodImp {
     /**
      * @param menuItem
      */
-    public abstract void initMenuItem(MenuItem menuItem);
+    void initMenuItem(MenuItem menuItem);
 
     /**
      * @param view
      */
-    public abstract void initClick(View view);
+    void initClick(View view);
 
     /**
      * @param object
      */
-    public abstract void initEvent(Object object);
+    void initEvent(Object object);
 
     /**
      * @param position
      */
-    public abstract void initItemClick(int position);
+    void initItemClick(int position);
 
     /**
      * @param object
      */
-    public abstract void initItemClick(Object object);
+    void initItemClick(Object object);
 
     /**
      * @param position
      */
-    public abstract void initItemLongClick(int position);
+    void initItemLongClick(int position);
 
     /**
      * @param object
      */
-    public abstract void initItemLongClick(Object object);
+    void initItemLongClick(Object object);
+
+
+    /**
+     *
+     * @param button
+     * @param isChecked
+     */
+    void initCheckedChange(CompoundButton button, boolean isChecked);
 }
