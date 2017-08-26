@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.proproject.butterfly.MainActivity">
+    tools:context="com.proproject.butterfly.ui.activities.MainActivity">
 
 
-    <com.proproject.butterfly.views.CustomFrontTextView
+    <com.proproject.butterfly.ui.views.CustomFrontTextView
         android:id="@+id/cftvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

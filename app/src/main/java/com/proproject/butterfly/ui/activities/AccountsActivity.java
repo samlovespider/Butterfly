@@ -1,6 +1,7 @@
-package com.proproject.butterfly.activities;
+package com.proproject.butterfly.ui.activities;
 
 import android.support.v4.content.ContextCompat;
+import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Switch;
@@ -8,44 +9,50 @@ import android.widget.TextView;
 
 import com.proproject.butterfly.R;
 import com.proproject.butterfly.baseclasses.BaseActivity;
+import com.proproject.butterfly.ui.activities.login.LoginFacebookActivity_;
+import com.proproject.butterfly.ui.activities.login.LoginInstagramActivity;
+import com.proproject.butterfly.ui.activities.login.LoginSnapActivity;
 
 import org.androidannotations.annotations.CheckedChange;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
 @EActivity(R.layout.activity_accounts)
 public class AccountsActivity extends BaseActivity {
 
+    @ViewById(R.id.imgbtnLoginFacebook)
+    ImageButton imgbtnLoginFacebook;
     @ViewById(R.id.tvFacebook)
     TextView tvFacebook;
     @ViewById(R.id.swFacebook)
     Switch swFacebook;
-    @ViewById(R.id.imgbtnLoginFacebook)
-    ImageButton imgbtnLoginFacebook;
 
+    @ViewById(R.id.imgbtnLoginSnap)
+    ImageButton imgbtnLoginSnap;
     @ViewById(R.id.tvSnap)
     TextView tvSnap;
     @ViewById(R.id.swSnap)
     Switch swSnap;
-    @ViewById(R.id.imgbtnLoginSnap)
-    ImageButton imgbtnLoginSnap;
 
+    @ViewById(R.id.imgbtnLoginInstagram)
+    ImageButton imgbtnLoginInstagram;
     @ViewById(R.id.tvInstagram)
     TextView tvInstagram;
     @ViewById(R.id.swInstagram)
     Switch swInstagram;
-    @ViewById(R.id.imgbtnLoginInstagram)
-    ImageButton imgbtnLoginInstagram;
 
+    // LOG STATE
+    public static final int LOGSTATE_LOGINED = 1;
+    public static final int LOGSTATE_LOGOUT = -1;
     // IDs
-    private int mFacebookID = -1;
-    private int mSnapID = -1;
-    private int mInstagramID = -1;
+    private int mFacebookID = LOGSTATE_LOGOUT;
+    private int mSnapID = LOGSTATE_LOGOUT;
+    private int mInstagramID = LOGSTATE_LOGOUT;
 
 
     @Override
     public void initData() {
-
     }
 
     @Override
@@ -60,17 +67,48 @@ public class AccountsActivity extends BaseActivity {
         initTextState(tvInstagram, swInstagram.isChecked());
 
         // must login first
-        if (mFacebookID == -1) {
+        if (mFacebookID == LOGSTATE_LOGOUT) {
             swFacebook.setEnabled(false);
         }
-        if (mSnapID == -1) {
+        if (mSnapID == LOGSTATE_LOGOUT) {
             swSnap.setEnabled(false);
         }
-        if (mInstagramID == -1) {
+        if (mInstagramID == LOGSTATE_LOGOUT) {
             swInstagram.setEnabled(false);
         }
     }
 
+
+//    @Subscribe
+//    public void onEvent(LoginedEvent event) {
+//        switch (event.mLoginID) {
+//            case LoginActivity.FACEBOOK:
+//                swFacebook.setEnabled(true);
+//                break;
+//            case LoginActivity.SNAP:
+//                swSnap.setEnabled(true);
+//                break;
+//            case LoginActivity.INSTRAGRAM:
+//                swInstagram.setEnabled(true);
+//                break;
+//        }
+//    }
+
+    @Click({R.id.imgbtnLoginFacebook, R.id.imgbtnLoginSnap, R.id.imgbtnLoginInstagram})
+    @Override
+    public void initClick(View view) {
+        switch (view.getId()) {
+            case R.id.imgbtnLoginFacebook:
+                gotoActivity(LoginFacebookActivity_.class);
+                break;
+            case R.id.imgbtnLoginSnap:
+                gotoActivity(LoginSnapActivity.class);
+                break;
+            case R.id.imgbtnLoginInstagram:
+                gotoActivity(LoginInstagramActivity.class);
+                break;
+        }
+    }
 
     /**
      * @param button
@@ -119,6 +157,21 @@ public class AccountsActivity extends BaseActivity {
             view.setTextColor(ContextCompat.getColor(this, R.color.activity_main_text_normal));
         } else {
             view.setTextColor(ContextCompat.getColor(this, R.color.activity_main_text_selected));
+        }
+    }
+
+    /**
+     * @param imageButton
+     * @param state
+     */
+    private void changeLoginState(ImageButton imageButton, int state) {
+        switch (state) {
+            case LOGSTATE_LOGINED:
+                imageButton.setImageResource(R.drawable.ic_accounts_loged);
+                break;
+            case LOGSTATE_LOGOUT:
+                imageButton.setImageResource(R.drawable.ic_accounts_logout);
+                break;
         }
     }
 

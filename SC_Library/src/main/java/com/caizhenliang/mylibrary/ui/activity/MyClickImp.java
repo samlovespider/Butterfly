@@ -1,4 +1,4 @@
-package com.caizhenliang.mylibrary;
+package com.caizhenliang.mylibrary.ui.activity;
 
 import android.view.MenuItem;
 import android.view.View;
@@ -8,7 +8,7 @@ import android.widget.CompoundButton;
  * Created by caizhenliang on 2017/7/26.
  */
 
-public interface MyClickMethodImp {
+public interface MyClickImp {
 
     /**
      * @param menuItem
@@ -21,9 +21,9 @@ public interface MyClickMethodImp {
     void initClick(View view);
 
     /**
-     * @param object
+     * @param event
      */
-    void initEvent(Object object);
+//    void initEvent(Object event);
 
     /**
      * @param position
@@ -47,7 +47,6 @@ public interface MyClickMethodImp {
 
 
     /**
-     *
      * @param button
      * @param isChecked
      */

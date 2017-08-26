@@ -5,15 +5,19 @@
     <string name="fb_login_protocol_scheme">fb1937232573232561</string>
 
 
-    <!--activity_main-->
+    <!--MainActivity-->
     <string name="activity_main_qrcode">MyQRCode</string>
     <string name="activity_main_scaner">Scaner</string>
     <string name="activity_main_accounts">MyAccounts</string>
-    <!--activity_accounts-->
+    <!--AccountsActivity-->
     <string name="activity_accounts_accounts">Accounts</string>
     <string name="activity_accounts_facebook"><u>Facebook</u></string>
     <string name="activity_accounts_snap"><u>Snap</u></string>
     <string name="activity_accounts_instagram"><u>Instagram</u></string>
+    <!--LoginActivity-->
+    <string name="activity_login_title_facebook">Facebook</string>
+    <string name="activity_login_title_snap">Snap</string>
+    <string name="activity_login_title_instagram">Instagram</string>
 
 
 </resources>

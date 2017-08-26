@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name="com.caizhenliang.mylibrary.application.MyBaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -12,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity_"
+            android:name=".ui.activities.MainActivity_"
             android:theme="@style/ActivityThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,11 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.AccountsActivity_" />
-        <activity android:name=".activities.LoginActivity" />
-        <activity android:name=".activities.ScanerActivity" />
-        <activity android:name=".activities.QRCodeActivity" />
-
         <!-- ======================== Facebook ======================== -->
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -47,6 +43,12 @@
             </intent-filter>
         </activity>
         <!-- ======================== Facebook End ======================== -->
+        <activity android:name=".ui.activities.AccountsActivity_" />
+        <activity android:name=".ui.activities.ScanerActivity" />
+        <activity android:name=".ui.activities.QRCodeActivity" />
+        <activity android:name=".ui.activities.login.LoginFacebookActivity_" />
+        <activity android:name=".ui.activities.login.LoginSnapActivity" />
+        <activity android:name=".ui.activities.login.LoginInstagramActivity" />
     </application>
 
 </manifest>

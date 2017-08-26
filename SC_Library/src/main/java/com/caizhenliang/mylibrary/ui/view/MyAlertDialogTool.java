@@ -1,4 +1,4 @@
-package com.caizhenliang.mylibrary;
+package com.caizhenliang.mylibrary.ui.view;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

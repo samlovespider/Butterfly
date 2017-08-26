@@ -1,4 +1,4 @@
-package com.proproject.butterfly.views;
+package com.proproject.butterfly.ui.views;
 
 import android.content.Context;
 import android.content.res.AssetManager;

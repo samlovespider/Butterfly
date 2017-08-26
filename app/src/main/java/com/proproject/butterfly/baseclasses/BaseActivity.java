@@ -4,11 +4,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
 
-import com.caizhenliang.mylibrary.MyBaseActivity;
+import com.caizhenliang.mylibrary.ui.activity.MyBaseActivity;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
-import org.greenrobot.eventbus.Subscribe;
 
 /**
  * Created by caizhenliang on 2017/8/18.
@@ -25,6 +24,7 @@ public abstract class BaseActivity extends MyBaseActivity {
     @Override
     abstract public void initView();
 
+
     @Override
     public void initMenuItem(MenuItem menuItem) {
 
@@ -32,12 +32,6 @@ public abstract class BaseActivity extends MyBaseActivity {
 
     @Override
     public void initClick(View view) {
-
-    }
-
-    @Subscribe
-    @Override
-    public void initEvent(Object object) {
 
     }
 

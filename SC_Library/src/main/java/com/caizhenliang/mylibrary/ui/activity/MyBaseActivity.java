@@ -1,14 +1,14 @@
-package com.caizhenliang.mylibrary;
+package com.caizhenliang.mylibrary.ui.activity;
 
-import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
+
+import com.caizhenliang.mylibrary.ui.view.MyAlertDialogTool;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -16,39 +16,38 @@ import org.greenrobot.eventbus.Subscribe;
 /**
  *
  */
-abstract public class MyBaseActivity extends AppCompatActivity implements MyBaseActivityImp, MyClickMethodImp {
+abstract public class MyBaseActivity extends AppCompatActivity implements MyBaseActivityImp, MyClickImp, MyLogImp {
 
     protected ActionBar mActionBar;
-    protected MyAlertDialogTool myAlertDialogTool;//use to create alertdialog
+    protected MyAlertDialogTool mAlertDialogTool;//use to create alertdialog
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //
-        myAlertDialogTool = new MyAlertDialogTool(this);
+        mAlertDialogTool = new MyAlertDialogTool(this);
         mActionBar = getSupportActionBar();
-    }
-
-    /**
-     * post EventBus event
-     *
-     * @param event
-     */
-    protected void postEvent(Object event) {
-        EventBus.getDefault().post(event);
-    }
-
-
-    @Override
-    protected void onStart() {
-        super.onStart();
         EventBus.getDefault().register(this);
     }
 
+
     @Override
-    protected void onStop() {
+    public void low(Object o) {
+        Log.w(getClass().getSimpleName(), o.toString());
+    }
+
+    @Subscribe
+    public void onEvent(Object o) {
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
         EventBus.getDefault().unregister(this);
-        super.onStop();
+    }
+
+    protected void postEvent(Object event) {
+        EventBus.getDefault().post(event);
     }
 
     /**
@@ -135,6 +134,5 @@ abstract public class MyBaseActivity extends AppCompatActivity implements MyBase
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 }
