@@ -10,17 +10,18 @@ import com.facebook.FacebookException;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.proproject.butterfly.R;
-import com.proproject.butterfly.baseclasses.BaseActivity;
+import com.proproject.butterfly.base.BaseActivity;
 import com.proproject.butterfly.ui.views.CustomFrontTextView;
 
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
-import java.util.Arrays;
-
 import static com.facebook.FacebookSdk.getApplicationSignature;
 
+/**
+ *
+ */
 @EActivity(R.layout.activity_main)
 public class MainActivity extends BaseActivity {
 
@@ -38,12 +39,15 @@ public class MainActivity extends BaseActivity {
     }
 
 
+    /**
+     *
+     */
     private void initFacebook() {
 
         // TODO: 2017/8/26 need make cache frame to store token and profile
 //        low(AccessToken.getCurrentAccessToken().getToken());
-        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"));
-
+//        low(Profile.getCurrentProfile().getId());
+//        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"));
 
         mCallbackManager = CallbackManager.Factory.create();
         LoginManager.getInstance().registerCallback(mCallbackManager,

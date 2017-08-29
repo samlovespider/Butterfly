@@ -9,31 +9,42 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.caizhenliang.mylibrary.ui.view.MyAlertDialogTool;
+import com.caizhenliang.mylibrary.util.ACache;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 /**
- *
+ * @author caizhenliang
  */
 abstract public class MyBaseActivity extends AppCompatActivity implements MyBaseActivityImp, MyClickImp, MyLogImp {
 
     protected ActionBar mActionBar;
     protected MyAlertDialogTool mAlertDialogTool;//use to create alertdialog
+    protected ACache mACache;
+    protected EventBus mEventBus;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //
-        mAlertDialogTool = new MyAlertDialogTool(this);
+        // init AlertDialog
+        mAlertDialogTool = new MyAlertDialogTool(getBaseContext());
+        // init ActionBar
         mActionBar = getSupportActionBar();
-        EventBus.getDefault().register(this);
+        // init Eventbus
+        mEventBus = EventBus.getDefault();
+        mEventBus.register(this);
+        // init ACache
+        mACache = ACache.get(getBaseContext());
     }
-
 
     @Override
     public void low(Object o) {
-        Log.w(getClass().getSimpleName(), o.toString());
+        if (o != null) {
+            Log.w(getClass().getSimpleName(), o.toString());
+        } else {
+            Log.w(getClass().getSimpleName(), null + "");
+        }
     }
 
     @Subscribe
@@ -43,11 +54,7 @@ abstract public class MyBaseActivity extends AppCompatActivity implements MyBase
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
-    }
-
-    protected void postEvent(Object event) {
-        EventBus.getDefault().post(event);
+        mEventBus.unregister(this);
     }
 
     /**

@@ -1,6 +1,7 @@
 package com.proproject.butterfly.ui.activities.login;
 
 import android.content.Intent;
+import android.view.View;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -10,7 +11,9 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.proproject.butterfly.R;
-import com.proproject.butterfly.baseclasses.BaseActivity;
+import com.proproject.butterfly.base.BaseActivity;
+import com.proproject.butterfly.event.FacebookLoginEvent;
+import com.proproject.butterfly.event.FacebookLogoutEvent;
 
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
@@ -27,31 +30,32 @@ public class LoginFacebookActivity extends BaseActivity {
 
     @Override
     public void initData() {
-
         mCallbackManager = CallbackManager.Factory.create();
         LoginManager.getInstance().registerCallback(mCallbackManager,
                 new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
-                        // App code
-                        low(loginResult);
-
-                        low(AccessToken.getCurrentAccessToken().getToken());
-                        // TODO: 2017/8/26 when login postevent to change the state of switch
+                        mEventBus.post(new FacebookLoginEvent());
                     }
 
                     @Override
                     public void onCancel() {
-                        // App code
                         low("onCancel");
                     }
 
                     @Override
                     public void onError(FacebookException exception) {
-                        // App code
                         low(exception);
                     }
                 });
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (AccessToken.getCurrentAccessToken() != null) {
+                    mEventBus.post(new FacebookLogoutEvent());
+                }
+            }
+        });
     }
 
     @Override

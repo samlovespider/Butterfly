@@ -1,10 +1,11 @@
-package com.proproject.butterfly.baseclasses;
+package com.proproject.butterfly.base;
 
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
 
 import com.caizhenliang.mylibrary.ui.activity.MyBaseActivity;
+import com.proproject.butterfly.BuildConfig;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
@@ -24,6 +25,12 @@ public abstract class BaseActivity extends MyBaseActivity {
     @Override
     abstract public void initView();
 
+    @Override
+    public void low(Object o) {
+        if (BuildConfig.DEBUG) {
+            super.low(o);
+        }
+    }
 
     @Override
     public void initMenuItem(MenuItem menuItem) {
