@@ -1,15 +1,59 @@
 package com.proproject.butterfly.ui.activities;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.content.Intent;
+import android.support.annotation.NonNull;
 
 import com.proproject.butterfly.R;
+import com.proproject.butterfly.base.BaseActivity;
+import com.samcai.sc_qrcode.Qrcode;
+import com.samcai.sc_qrcode.QrcodeFactory;
+import com.samcai.sc_qrcode.callback.PermissionResultCallback;
+import com.samcai.sc_qrcode.callback.QrcodeCallback;
+import com.samcai.sc_qrcode.qrcode.QrcodeInfo;
 
-public class ScanerActivity extends AppCompatActivity {
+import org.androidannotations.annotations.EActivity;
+
+@EActivity(R.layout.activity_scaner)
+public class ScanerActivity extends BaseActivity {
+
+    private Qrcode mQrcode;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scaner);
+    public void initData() {
+
+    }
+
+    @Override
+    public void initView() {
+
+        mActionBar.setDisplayHomeAsUpEnabled(true);
+        mActionBar.setTitle(R.string.activity_scaner_title);
+
+        mQrcode = QrcodeFactory.newQrcode(this);
+        mQrcode.start();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, final Intent data) {
+        mQrcode.onActivityResult(requestCode, resultCode, data, new QrcodeCallback() {
+            @Override
+            public void onSuccess(@NonNull QrcodeInfo info) {
+                String textInfo = "二维码信息" + info.getResult() + "图片高度" + info.getHeight() + "图片宽度" + info.getWidth();
+                low(textInfo);
+            }
+
+            @Override
+            public void onFailed(@NonNull String errMsg) {
+            }
+        });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        mQrcode.onRequestPermissionsResult(requestCode, permissions, grantResults, new PermissionResultCallback() {
+            @Override
+            public void denyPermission() {
+            }
+        });
     }
 }

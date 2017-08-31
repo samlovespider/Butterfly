@@ -21,10 +21,8 @@ import org.androidannotations.annotations.ViewById;
 @EActivity(R.layout.activity_login_facebook)
 public class LoginFacebookActivity extends BaseActivity {
 
-
     @ViewById(R.id.login_button)
     LoginButton loginButton;
-
 
     private CallbackManager mCallbackManager;
 

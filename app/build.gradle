@@ -17,10 +17,10 @@ android {
         }
     }
     compileSdkVersion 25
-    buildToolsVersion "26.0.0"
+    buildToolsVersion '26.0.1'
     defaultConfig {
         applicationId "com.proproject.butterfly"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 25
         versionCode 1000
         versionName "1.0.1"
@@ -29,13 +29,10 @@ android {
     }
     buildTypes {
         release {
-            // buildConfigField "boolean","DEBUG_MODE","false"
-            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
         debug {
-            // buildConfigField "boolean","DEBUG_MODE","true"
             signingConfig signingConfigs.debug
         }
     }
@@ -50,13 +47,14 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     //---------------
+    compile project(':SC_Library')
+    compile project(':SC_QRcode')
+    //---------------
     // Fackbook
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
     //---------------
-    compile project(':SC_Library')
-    //---------------
     // AndroidAnnotations
-    annotationProcessor "org.androidannotations:androidannotations:$AAVersion"
+    annotationProcessor "org.androidannotations:androidannotations:$AAVersion" //
     compile "org.androidannotations:androidannotations-api:$AAVersion"
     //---------------
 }

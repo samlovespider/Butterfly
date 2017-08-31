@@ -44,8 +44,8 @@
         </activity>
         <!-- ======================== Facebook End ======================== -->
         <activity android:name=".ui.activities.AccountsActivity_" />
-        <activity android:name=".ui.activities.ScanerActivity" />
-        <activity android:name=".ui.activities.QRCodeActivity" />
+        <activity android:name=".ui.activities.ScanerActivity_" />
+        <activity android:name=".ui.activities.QRCodeActivity_" />
         <activity android:name=".ui.activities.login.LoginFacebookActivity_" />
         <activity android:name=".ui.activities.login.LoginSnapActivity" />
         <activity android:name=".ui.activities.login.LoginInstagramActivity" />
