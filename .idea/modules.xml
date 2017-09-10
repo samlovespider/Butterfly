@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Butterfly.iml" filepath="$PROJECT_DIR$/Butterfly.iml" />
       <module fileurl="file://$PROJECT_DIR$/SC_Library/SC_Library.iml" filepath="$PROJECT_DIR$/SC_Library/SC_Library.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SC_QRcode/sc_qrcode.iml" filepath="$PROJECT_DIR$/SC_QRcode/sc_qrcode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SC_QRcode/SC_QRcode.iml" filepath="$PROJECT_DIR$/SC_QRcode/SC_QRcode.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
