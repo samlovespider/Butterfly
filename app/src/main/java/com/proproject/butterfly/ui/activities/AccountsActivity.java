@@ -1,10 +1,10 @@
 package com.proproject.butterfly.ui.activities;
 
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import com.facebook.AccessToken;
@@ -31,21 +31,21 @@ public class AccountsActivity extends BaseActivity {
     @ViewById(R.id.tvFacebook)
     TextView tvFacebook;
     @ViewById(R.id.swFacebook)
-    Switch swFacebook;
+    SwitchCompat swFacebook;
 
     @ViewById(R.id.imgbtnLoginSnap)
     ImageButton imgbtnLoginSnap;
     @ViewById(R.id.tvSnap)
     TextView tvSnap;
     @ViewById(R.id.swSnap)
-    Switch swSnap;
+    SwitchCompat swSnap;
 
     @ViewById(R.id.imgbtnLoginInstagram)
     ImageButton imgbtnLoginInstagram;
     @ViewById(R.id.tvInstagram)
     TextView tvInstagram;
     @ViewById(R.id.swInstagram)
-    Switch swInstagram;
+    SwitchCompat swInstagram;
 
     // LOG STATE
     public static final int LOGSTATE_LOGINED = 1;
@@ -60,7 +60,7 @@ public class AccountsActivity extends BaseActivity {
     protected void onStop() {
         super.onStop();
         mACache.put(Constants.CACHE_FACEBOOK_SWITCH_STATE, swFacebook.isChecked() + "");
-        low("swFacebook.isChecked()-" + swFacebook.isChecked());
+        logW("swFacebook.isChecked()-" + swFacebook.isChecked());
     }
 
     @Override
@@ -81,6 +81,7 @@ public class AccountsActivity extends BaseActivity {
         if (mInstagramState == LOGSTATE_LOGOUT) {
             swInstagram.setEnabled(false);
         }
+        swSnap.setEnabled(true);
     }
 
     /**
@@ -90,17 +91,21 @@ public class AccountsActivity extends BaseActivity {
         // get account cache
         if (AccessToken.getCurrentAccessToken() != null) {
             mFacebookState = LOGSTATE_LOGINED;
+
+            logW("initFacebook: getToken",AccessToken.getCurrentAccessToken().getToken());
+            logW("initFacebook: getApplicationId", AccessToken.getCurrentAccessToken().getApplicationId());
+            logW("initFacebook: userid", AccessToken.getCurrentAccessToken().getUserId());
+            logW("mFacebookState-" + (mFacebookState == LOGSTATE_LOGINED ? "LOGSTATE_LOGINED" : "LOGSTATE_LOGOUT"));
+
         } else {
             mFacebookState = LOGSTATE_LOGOUT;
         }
-        low("mFacebookState-" + mFacebookState);
-
         // get switch state which been saved when activity stopped
         boolean isFacebook = Boolean.parseBoolean(mACache.getAsString(Constants.CACHE_FACEBOOK_SWITCH_STATE));
         if (mFacebookState == LOGSTATE_LOGOUT) {
             isFacebook = false;
         }
-        low("isFacebook-" + isFacebook);
+        logW("isFacebook-" + isFacebook);
 
         // init views' state
         setImageButtonBackground(imgbtnLoginFacebook, mFacebookState);
@@ -190,7 +195,7 @@ public class AccountsActivity extends BaseActivity {
      * @param isChecked
      * @param state
      */
-    private void setSwitchState(Switch sw, boolean isChecked, int state) {
+    private void setSwitchState(SwitchCompat sw, boolean isChecked, int state) {
         switch (state) {
             case LOGSTATE_LOGINED:
                 sw.setEnabled(true);

@@ -5,24 +5,30 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 
 import com.caizhenliang.mylibrary.ui.view.MyAlertDialogTool;
 import com.caizhenliang.mylibrary.util.ACache;
+import com.caizhenliang.mylibrary.util.SCBus;
+import com.caizhenliang.mylibrary.util.SCLog;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
-import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 /**
  * @author caizhenliang
  */
-abstract public class MyBaseActivity extends AppCompatActivity implements MyBaseActivityImp, MyClickImp, MyLogImp {
+abstract public class MyBaseActivity extends AppCompatActivity implements MyBaseActivityImp, MyClickImp, MyLogImp, MyBaseHttpImp, MyBaseBusImp {
 
+    //
+    protected String TAG = getClass().getSimpleName();
+    //
     protected ActionBar mActionBar;
     protected MyAlertDialogTool mAlertDialogTool;//use to create alertdialog
     protected ACache mACache;
-    protected EventBus mEventBus;
+    protected AsyncHttpClient mHttpClient;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,66 +38,50 @@ abstract public class MyBaseActivity extends AppCompatActivity implements MyBase
         // init ActionBar
         mActionBar = getSupportActionBar();
         // init Eventbus
-        mEventBus = EventBus.getDefault();
-        mEventBus.register(this);
+        SCBus.getInstance().register(this);
         // init ACache
         mACache = ACache.get(getBaseContext());
+        // init AsyncHttpClient
+        mHttpClient = new AsyncHttpClient();
     }
 
     @Override
-    public void low(Object o) {
-        if (o != null) {
-            Log.w(getClass().getSimpleName(), o.toString());
-        } else {
-            Log.w(getClass().getSimpleName(), null + "");
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
         }
+        return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        SCBus.getInstance().unregister(this);
+    }
+
+    //-- MyBaseActivityImp **--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**
 
     @Subscribe
     public void onEvent(Object o) {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mEventBus.unregister(this);
-    }
-
-    /**
-     * 跳转Activity；
-     *
-     * @param paramClass Activity参数
-     */
-    protected void gotoActivity(Class<?> paramClass) {
+    public void gotoActivity(Class<?> paramClass) {
         doGotoActivity(paramClass, null);
     }
 
-    /**
-     * 跳转Activity，带有Bundle参数；
-     *
-     * @param paramClass Activity参数
-     * @param bundle     Bundle参数
-     */
-    protected void gotoActivity(Class<?> paramClass, Bundle bundle) {
+    @Override
+    public void gotoActivity(Class<?> paramClass, Bundle bundle) {
         doGotoActivity(paramClass, bundle);
     }
 
-    /**
-     * 跳转Activity，带有Bundle参数，并且该Activity不会压入栈中，返回后自动关闭；
-     *
-     * @param paramClass Activity参数
-     * @param bundle     Bundle参数
-     */
-    protected void gotoActivityNoHistory(Class<?> paramClass, Bundle bundle) {
+    @Override
+    public void gotoActivityNoHistory(Class<?> paramClass, Bundle bundle) {
         doGotoActivity(paramClass, bundle, Intent.FLAG_ACTIVITY_NO_HISTORY);
     }
 
-    /**
-     * @param paramClass
-     * @param bundle
-     * @param paramInt
-     */
-    protected void gotoActivityForResult(Class<?> paramClass, Bundle bundle, int paramInt) {
+    @Override
+    public void gotoActivityForResult(Class<?> paramClass, Bundle bundle, int paramInt) {
         Intent lIntent = new Intent(this.getBaseContext(), paramClass);
         if (bundle != null) {
             lIntent.putExtras(bundle);
@@ -99,7 +89,6 @@ abstract public class MyBaseActivity extends AppCompatActivity implements MyBase
         }
         startActivityForResult(lIntent, paramInt);
     }
-
 
     /**
      * 跳转Activity，带有Bundle参数，如果该Activity已启动过，则不启动新的；
@@ -133,13 +122,34 @@ abstract public class MyBaseActivity extends AppCompatActivity implements MyBase
         startActivity(lIntent);
     }
 
+    //-- MyBaseHttpImp **--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
-        }
-        return super.onOptionsItemSelected(item);
+    public void get(String url, RequestParams requestParams, AsyncHttpResponseHandler asyncHttpResponseHandler) {
+        mHttpClient.get(this, url, requestParams, asyncHttpResponseHandler);
     }
 
+    @Override
+    public void post(String url, RequestParams requestParams, AsyncHttpResponseHandler asyncHttpResponseHandler) {
+        mHttpClient.post(this, url, requestParams, asyncHttpResponseHandler);
+    }
+
+    //-- MyBaseBusImp **--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**
+
+    @Override
+    public void post(Object o) {
+        SCBus.getInstance().post(o);
+    }
+
+    //-- MyLogImp **--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**
+
+    @Override
+    public void logW(Object o) {
+        SCLog.w(TAG, o);
+    }
+
+    @Override
+    public void logW(String title, Object o) {
+        SCLog.w(TAG, title, o);
+    }
 }

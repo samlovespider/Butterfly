@@ -14,6 +14,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.activities.MainActivity_"
+            android:screenOrientation="portrait"
             android:theme="@style/ActivityThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,12 +44,24 @@
             </intent-filter>
         </activity>
         <!-- ======================== Facebook End ======================== -->
-        <activity android:name=".ui.activities.AccountsActivity_" />
-        <activity android:name=".ui.activities.ScanerActivity_" />
-        <activity android:name=".ui.activities.QRCodeActivity_" />
-        <activity android:name=".ui.activities.login.LoginFacebookActivity_" />
-        <activity android:name=".ui.activities.login.LoginSnapActivity" />
-        <activity android:name=".ui.activities.login.LoginInstagramActivity" />
+        <activity
+            android:name=".ui.activities.AccountsActivity_"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.ScanerActivity_"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.QRCodeActivity_"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.login.LoginFacebookActivity_"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.login.LoginSnapActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activities.login.LoginInstagramActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

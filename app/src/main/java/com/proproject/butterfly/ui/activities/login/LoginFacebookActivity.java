@@ -7,6 +7,8 @@ import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.Profile;
+import com.facebook.ProfileTracker;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
@@ -25,6 +27,7 @@ public class LoginFacebookActivity extends BaseActivity {
     LoginButton loginButton;
 
     private CallbackManager mCallbackManager;
+    private ProfileTracker mProfileTracker;
 
     @Override
     public void initData() {
@@ -33,27 +36,38 @@ public class LoginFacebookActivity extends BaseActivity {
                 new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
-                        mEventBus.post(new FacebookLoginEvent());
+                        post(new FacebookLoginEvent());
                     }
 
                     @Override
                     public void onCancel() {
-                        low("onCancel");
+                        logW("onCancel");
                     }
 
                     @Override
                     public void onError(FacebookException exception) {
-                        low(exception);
+                        logW(exception);
                     }
                 });
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (AccessToken.getCurrentAccessToken() != null) {
-                    mEventBus.post(new FacebookLogoutEvent());
+                    post(new FacebookLogoutEvent());
                 }
             }
         });
+
+
+        mProfileTracker = new ProfileTracker() {
+            @Override
+            protected void onCurrentProfileChanged(
+                    Profile oldProfile,
+                    Profile currentProfile) {
+                // App code
+                logW("onCurrentProfileChanged: id ", currentProfile.getId());
+            }
+        };
     }
 
     @Override
@@ -67,5 +81,11 @@ public class LoginFacebookActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         mCallbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mProfileTracker.stopTracking();
     }
 }

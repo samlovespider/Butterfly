@@ -39,7 +39,7 @@ public class ScanerActivity extends BaseActivity {
             @Override
             public void onSuccess(@NonNull QrcodeInfo info) {
                 String textInfo = "二维码信息" + info.getResult() + "图片高度" + info.getHeight() + "图片宽度" + info.getWidth();
-                low(textInfo);
+                logW(textInfo);
             }
 
             @Override

@@ -26,7 +26,7 @@
             android:layout_marginRight="40dp"
             android:text="@string/activity_accounts_facebook" />
 
-        <Switch
+        <android.support.v7.widget.SwitchCompat
             android:id="@+id/swFacebook"
             style="@style/activity_accounts_switch" />
     </LinearLayout>
@@ -55,7 +55,7 @@
             android:layout_toRightOf="@+id/imgbtnLoginSnap"
             android:text="@string/activity_accounts_snap" />
 
-        <Switch
+        <android.support.v7.widget.SwitchCompat
             android:id="@+id/swSnap"
             style="@style/activity_accounts_switch"
             android:layout_alignParentRight="true"
@@ -86,7 +86,7 @@
             android:layout_toRightOf="@+id/imgbtnLoginInstagram"
             android:text="@string/activity_accounts_instagram" />
 
-        <Switch
+        <android.support.v7.widget.SwitchCompat
             android:id="@+id/swInstagram"
             style="@style/activity_accounts_switch"
             android:layout_alignParentRight="true"

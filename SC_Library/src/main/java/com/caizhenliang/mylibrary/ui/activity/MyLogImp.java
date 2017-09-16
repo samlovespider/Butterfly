@@ -7,8 +7,13 @@ package com.caizhenliang.mylibrary.ui.activity;
 public interface MyLogImp {
 
     /**
-     *
      * @param o
      */
-    void low(Object o);
+    void logW(Object o);
+
+    /**
+     * @param title
+     * @param o
+     */
+    void logW(String title, Object o);
 }

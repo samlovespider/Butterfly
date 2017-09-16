@@ -16,7 +16,6 @@ import org.androidannotations.annotations.EActivity;
 @EActivity
 public abstract class BaseActivity extends MyBaseActivity {
 
-
     @AfterViews
     @Override
     abstract public void initData();
@@ -26,9 +25,16 @@ public abstract class BaseActivity extends MyBaseActivity {
     abstract public void initView();
 
     @Override
-    public void low(Object o) {
+    public void logW(Object o) {
         if (BuildConfig.DEBUG) {
-            super.low(o);
+            super.logW(o);
+        }
+    }
+
+    @Override
+    public void logW(String title, Object o) {
+        if (BuildConfig.DEBUG) {
+            super.logW(title, o);
         }
     }
 
