@@ -1,48 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.proproject.butterfly.ui.activities.MainActivity">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.proproject.butterfly.ui.activities.MainActivity">
 
-
-    <com.proproject.butterfly.ui.views.CustomFrontTextView
-        android:id="@+id/cftvTitle"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/relTitle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:text="@string/activity_main_title"
-        android:textSize="40sp" />
+        android:layout_marginTop="30dp">
 
+        <com.proproject.butterfly.ui.views.CustomFrontTextView
+            android:id="@+id/cftvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/activity_main_title"
+            android:textColor="@color/selector_activity_main_title"
+            android:textSize="@dimen/activity_main_title_text_size"/>
+
+        <ImageButton
+            android:id="@+id/ibScan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/ic_qrcode"
+            android:contentDescription="@string/activity_main_contentDescription_imagebutton"/>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/cftvTitle"
+        android:layout_below="@+id/relTitle"
         android:layout_marginTop="40dp"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
+        <!---->
+        <View
+            style="@style/Line_horizontal"
+            android:layout_width="150dp"
+            android:layout_marginTop="10dp"/>
 
         <Button
-            android:id="@+id/btnQRcode"
+            android:id="@+id/btnSocial"
             style="@style/activity_main_button"
-            android:layout_marginTop="10dp"
-            android:text="@string/activity_main_qrcode" />
+            android:text="@string/activity_main_social"/>
+
+        <View
+            style="@style/Line_horizontal"
+            android:layout_width="150dp"/>
+
+        <!---->
+        <View
+            style="@style/Line_horizontal"
+            android:layout_width="150dp"
+            android:layout_marginTop="55dp"/>
 
         <Button
-            android:id="@+id/btnScaner"
+            android:id="@+id/btnBusiness"
             style="@style/activity_main_button"
-            android:text="@string/activity_main_scaner" />
+            android:text="@string/activity_main_business"/>
+
+        <View
+            style="@style/Line_horizontal"
+            android:layout_width="150dp"/>
+
+        <!---->
+        <View
+            style="@style/Line_horizontal"
+            android:layout_width="150dp"
+            android:layout_marginTop="55dp"/>
 
         <Button
-            android:id="@+id/btnAccounts"
+            android:id="@+id/btnProject"
             style="@style/activity_main_button"
-            android:layout_marginBottom="10dp"
-            android:text="@string/activity_main_accounts" />
+            android:text="@string/activity_main_project"/>
+
+        <View
+            style="@style/Line_horizontal"
+            android:layout_width="150dp"
+            android:layout_marginBottom="55dp"/>
 
     </LinearLayout>
-
-
 </RelativeLayout>

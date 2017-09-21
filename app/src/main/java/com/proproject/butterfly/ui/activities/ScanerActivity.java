@@ -2,6 +2,7 @@ package com.proproject.butterfly.ui.activities;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.widget.TextView;
 
 import com.proproject.butterfly.R;
 import com.proproject.butterfly.base.BaseActivity;
@@ -12,9 +13,13 @@ import com.samcai.sc_qrcode.callback.QrcodeCallback;
 import com.samcai.sc_qrcode.qrcode.QrcodeInfo;
 
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
 
 @EActivity(R.layout.activity_scaner)
 public class ScanerActivity extends BaseActivity {
+
+    @ViewById(R.id.tvCodeInfor)
+    TextView tvCodeInfor;
 
     private Qrcode mQrcode;
 
@@ -40,6 +45,7 @@ public class ScanerActivity extends BaseActivity {
             public void onSuccess(@NonNull QrcodeInfo info) {
                 String textInfo = "二维码信息" + info.getResult() + "图片高度" + info.getHeight() + "图片宽度" + info.getWidth();
                 logW(textInfo);
+                tvCodeInfor.setText(textInfo);
             }
 
             @Override

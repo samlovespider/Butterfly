@@ -1,6 +1,5 @@
 package com.proproject.butterfly.ui.activities;
 
-import android.os.Bundle;
 import android.view.View;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -30,12 +29,9 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initData() {
         logW("ApplicationSignature- " + getApplicationSignature(this));
-
-
     }
 
-
-    private void try1(){
+    private void try1() {
 
         String url = "https://www.facebook.com/ajax/add_friend/action.php";
         RequestParams requestParams = new RequestParams();
@@ -86,7 +82,7 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    private void try2(){
+    private void try2() {
 
         String url = "graph.facebook.com";
 
@@ -96,20 +92,23 @@ public class MainActivity extends BaseActivity {
     public void initView() {
     }
 
-    @Click({R.id.btnQRcode, R.id.btnScaner, R.id.btnAccounts})
+    @Click({R.id.btnSocial, R.id.btnBusiness, R.id.btnProject, R.id.cftvTitle, R.id.ibScan})
     @Override
     public void initClick(View view) {
         switch (view.getId()) {
-            case R.id.btnQRcode:
-                Bundle bundle = new Bundle();
-                bundle.putString(QRCodeActivity_.M_QRCODE_CONTENT_EXTRA, "suibianla");
-                gotoActivity(QRCodeActivity_.class, bundle);
-                break;
-            case R.id.btnScaner:
-                gotoActivity(ScanerActivity_.class);
-                break;
-            case R.id.btnAccounts:
+            case R.id.btnSocial:
                 gotoActivity(AccountsActivity_.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putString(QRCodeActivity_.M_QRCODE_CONTENT_EXTRA, "suibianla");
+//                gotoActivity(QRCodeActivity_.class, bundle);
+                break;
+            case R.id.btnBusiness:
+                break;
+            case R.id.btnProject:
+                break;
+            case R.id.cftvTitle:
+            case R.id.ibScan:
+                gotoActivity(ScanerActivity_.class);
                 break;
         }
     }

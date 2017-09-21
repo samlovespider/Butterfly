@@ -7,9 +7,10 @@
 
     <!--MainActivity-->
     <string name="activity_main_title">ButterFly</string>
-    <string name="activity_main_qrcode">MyQRCode</string>
-    <string name="activity_main_scaner">Scaner</string>
-    <string name="activity_main_accounts">MyAccounts</string>
+    <string name="activity_main_social">Social</string>
+    <string name="activity_main_business">Business</string>
+    <string name="activity_main_project">Project</string>
+    <string name="activity_main_contentDescription_imagebutton">imagebutton</string>
     <!--AccountsActivity-->
     <string name="activity_accounts_accounts">Accounts</string>
     <string name="activity_accounts_facebook"><u>Facebook</u></string>
