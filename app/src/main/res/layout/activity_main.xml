@@ -37,14 +37,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/relTitle"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
         <!---->
         <View
             style="@style/Line_horizontal"
-            android:layout_width="150dp"
             android:layout_marginTop="10dp"/>
 
         <Button
@@ -53,13 +52,11 @@
             android:text="@string/activity_main_social"/>
 
         <View
-            style="@style/Line_horizontal"
-            android:layout_width="150dp"/>
+            style="@style/Line_horizontal"/>
 
         <!---->
         <View
             style="@style/Line_horizontal"
-            android:layout_width="150dp"
             android:layout_marginTop="55dp"/>
 
         <Button
@@ -68,13 +65,11 @@
             android:text="@string/activity_main_business"/>
 
         <View
-            style="@style/Line_horizontal"
-            android:layout_width="150dp"/>
+            style="@style/Line_horizontal"/>
 
         <!---->
         <View
             style="@style/Line_horizontal"
-            android:layout_width="150dp"
             android:layout_marginTop="55dp"/>
 
         <Button
@@ -84,8 +79,35 @@
 
         <View
             style="@style/Line_horizontal"
-            android:layout_width="150dp"
             android:layout_marginBottom="55dp"/>
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ibFacebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_facebook"/>
+
+        <ImageButton
+            android:id="@+id/ibSnapchat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ic_snapchat"/>
+
+        <ImageButton
+            android:id="@+id/ibInstagram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_instagram"/>
     </LinearLayout>
 </RelativeLayout>
