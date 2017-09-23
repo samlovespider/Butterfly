@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/relTitle"
+              android:gravity="center_horizontal"
+              android:orientation="vertical">
+
+    <!---->
+    <LinearLayout
+        android:id="@+id/linSocial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <View
+            style="@style/Line_horizontal"
+            android:background="@drawable/selector_activity_main_line"/>
+
+        <Button
+            style="@style/activity_main_button"
+            android:clickable="false"
+            android:text="@string/activity_main_social"/>
+
+        <View
+            style="@style/Line_horizontal"
+            android:background="@drawable/selector_activity_main_line"/>
+    </LinearLayout>
+
+    <!---->
+    <LinearLayout
+        android:id="@+id/linBusiness"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <View style="@style/activity_main_line_horizontal"/>
+
+        <Button
+            style="@style/activity_main_button"
+            android:clickable="false"
+            android:text="@string/activity_main_business"/>
+
+        <View
+            style="@style/Line_horizontal"
+            android:background="@drawable/selector_activity_main_line"/>
+    </LinearLayout>
+
+    <!---->
+    <LinearLayout
+        android:id="@+id/linProject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <View style="@style/activity_main_line_horizontal"/>
+
+        <Button
+            style="@style/activity_main_button"
+            android:clickable="false"
+            android:text="@string/activity_main_project"/>
+
+        <View
+            style="@style/Line_horizontal"
+            android:background="@drawable/selector_activity_main_line"/>
+    </LinearLayout>
+</LinearLayout>
