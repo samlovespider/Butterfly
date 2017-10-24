@@ -2,13 +2,13 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion '26.0.1'
+    buildToolsVersion '25.0.3'
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 25
-        versionCode 1000
-        versionName "1.0.0"
+        targetSdkVersion 26
+        versionCode 3
+        versionName "1.0.2"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -28,6 +28,8 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:support-v4:25.3.1'
     testCompile 'junit:junit:4.12'
     //---------------
     // EventBus
@@ -39,4 +41,7 @@ dependencies {
     //---------------
     // Asynchttp
     compile 'com.loopj.android:android-async-http:1.4.9'
+    //---------------
+    // FlycoTabLayout
+    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
 }

@@ -59,13 +59,10 @@ public class AccountsActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        mACache.put(Constants.CACHE_FACEBOOK_SWITCH_STATE, swFacebook.isChecked() + "");
+        mCache.put(Constants.CACHE_FACEBOOK_SWITCH_STATE, swFacebook.isChecked() + "");
         logW("swFacebook.isChecked()-" + swFacebook.isChecked());
     }
 
-    @Override
-    public void initData() {
-    }
 
     @Override
     public void initView() {
@@ -101,7 +98,7 @@ public class AccountsActivity extends BaseActivity {
             mFacebookState = LOGSTATE_LOGOUT;
         }
         // get switch state which been saved when activity stopped
-        boolean isFacebook = Boolean.parseBoolean(mACache.getAsString(Constants.CACHE_FACEBOOK_SWITCH_STATE));
+        boolean isFacebook = Boolean.parseBoolean(mCache.getAsString(Constants.CACHE_FACEBOOK_SWITCH_STATE));
         if (mFacebookState == LOGSTATE_LOGOUT) {
             isFacebook = false;
         }

@@ -28,11 +28,6 @@ public class QRCodeActivity extends BaseActivity {
     String mQrcodeContent;
 
     @Override
-    public void initData() {
-
-    }
-
-    @Override
     public void initView() {
         //
         mActionBar.setDisplayHomeAsUpEnabled(true);

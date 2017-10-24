@@ -5,6 +5,8 @@
     <string name="fb_login_protocol_scheme">fb1937232573232561</string>
 
 
+    <!--WelcomeActivity-->
+    <string name="activity_welcome_copyright">Copyright @ 2017 Social Butterfly. All rights reserved.</string>
     <!--MainActivity-->
     <string name="activity_main_title">ButterFly</string>
     <string name="activity_main_social">Social</string>

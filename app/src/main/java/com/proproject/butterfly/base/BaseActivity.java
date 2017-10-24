@@ -18,10 +18,6 @@ public abstract class BaseActivity extends MyBaseActivity {
 
     @AfterViews
     @Override
-    abstract public void initData();
-
-    @AfterViews
-    @Override
     abstract public void initView();
 
     @Override

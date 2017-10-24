@@ -1,18 +1,17 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="ActivityThemeNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="ActivityTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowAnimationStyle">@style/activity_fade_in_out</item>
     </style>
 
+
+    <!--=================Button=================-->
     <style name="activity_main_button">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">40dp</item>
@@ -22,6 +21,7 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <!--=================Textview=================-->
     <style name="activity_accounts_textview">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -29,13 +29,10 @@
         <item name="android:textSize">20sp</item>
     </style>
 
-    <style name="activity_accounts_switch">
+    <!--=================Switch=================-->
+    <style name="activity_accounts_switch" parent="Theme.AppCompat.Light">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:theme">@style/activity_accounts_theme_switch</item>
-    </style>
-
-    <style name="activity_accounts_theme_switch" parent="Theme.AppCompat.Light">
         <!-- Active thumb color & Active track color(30% transparency)
             switch 打开时的拇指按钮的颜色 轨迹颜色默认为30%这个颜色 -->
         <item name="colorControlActivated">@color/limegreen</item>
@@ -45,6 +42,7 @@
         <item name="android:colorForeground">@color/colorAccent</item>
     </style>
 
+    <!--=================LINE=================-->
     <style name="Line_horizontal">
         <item name="android:layout_width">150dp</item>
         <item name="android:layout_height">1dp</item>
@@ -54,6 +52,14 @@
     <style name="activity_main_line_horizontal" parent="Line_horizontal">
         <item name="android:layout_marginTop">35dp</item>
         <item name="android:background">@drawable/selector_activity_main_line</item>
+    </style>
+
+    <!--=================Animation=================-->
+    <style name="activity_fade_in_out" parent="android:Animation.Activity">
+        <item name="android:activityCloseExitAnimation">@anim/amin_activity_welcome_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/amin_activity_welcome_out</item>
+        <item name="android:activityOpenExitAnimation">@anim/amin_activity_welcome_in</item>
+        <item name="android:activityOpenEnterAnimation">@anim/amin_activity_welcome_in</item>
     </style>
 
 </resources>

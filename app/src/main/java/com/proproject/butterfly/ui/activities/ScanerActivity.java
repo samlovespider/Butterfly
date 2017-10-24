@@ -24,11 +24,6 @@ public class ScanerActivity extends BaseActivity {
     private Qrcode mQrcode;
 
     @Override
-    public void initData() {
-
-    }
-
-    @Override
     public void initView() {
 
         mActionBar.setDisplayHomeAsUpEnabled(true);

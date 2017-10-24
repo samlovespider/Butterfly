@@ -30,7 +30,8 @@ public class LoginFacebookActivity extends BaseActivity {
     private ProfileTracker mProfileTracker;
 
     @Override
-    public void initData() {
+    public void initView() {
+
         mCallbackManager = CallbackManager.Factory.create();
         LoginManager.getInstance().registerCallback(mCallbackManager,
                 new FacebookCallback<LoginResult>() {
@@ -58,7 +59,6 @@ public class LoginFacebookActivity extends BaseActivity {
             }
         });
 
-
         mProfileTracker = new ProfileTracker() {
             @Override
             protected void onCurrentProfileChanged(
@@ -68,10 +68,7 @@ public class LoginFacebookActivity extends BaseActivity {
                 logW("onCurrentProfileChanged: id ", currentProfile.getId());
             }
         };
-    }
 
-    @Override
-    public void initView() {
         mActionBar.setDisplayHomeAsUpEnabled(true);
         mActionBar.setTitle(R.string.activity_login_title_facebook);
     }

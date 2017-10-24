@@ -1,4 +1,4 @@
-package com.caizhenliang.mylibrary.ui.activity;
+package com.caizhenliang.mylibrary.Imp;
 
 import android.view.MenuItem;
 import android.view.View;
@@ -19,11 +19,6 @@ public interface MyClickImp {
      * @param view
      */
     void initClick(View view);
-
-    /**
-     * @param event
-     */
-//    void initEvent(Object event);
 
     /**
      * @param position
