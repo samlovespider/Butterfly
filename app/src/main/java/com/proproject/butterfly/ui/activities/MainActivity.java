@@ -34,7 +34,7 @@ public class MainActivity extends BaseActivity {
             case R.id.linSocial:
             case R.id.linBusiness:
             case R.id.linProject:
-                gotoActivity(AccountsActivity_.class);
+                gotoActivity(SocialActivity_.class);
                 break;
             case R.id.cftvTitle:
             case R.id.ibScan:
