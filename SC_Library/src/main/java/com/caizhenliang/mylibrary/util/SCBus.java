@@ -24,7 +24,7 @@ public class SCBus extends EventBus {
      */
     @Override
     public void post(Object event) {
-        SCLogHelper.w("BusEvent", event.getClass().getSimpleName());
+        SCLog.w("BusEvent", event.getClass().getSimpleName());
         super.post(event);
     }
 }

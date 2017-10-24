@@ -1,4 +1,4 @@
-package com.caizhenliang.mylibrary.Imp;
+package com.caizhenliang.mylibrary.ui.activity;
 
 import android.os.Bundle;
 
@@ -36,6 +36,11 @@ public interface MyBaseActivityImp {
      * @param paramInt
      */
     void gotoActivityForResult(Class<?> paramClass, Bundle bundle, int paramInt);
+
+    /**
+     * init Data, must go first
+     */
+    void initData();
 
     /**
      * init View
