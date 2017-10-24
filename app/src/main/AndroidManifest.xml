@@ -22,10 +22,9 @@
         </activity>
         <activity
             android:name=".ui.activities.MainActivity_"
-            android:screenOrientation="portrait"
-            android:theme="@style/ActivityTheme"/>
+            android:screenOrientation="portrait"/>
         <activity
-            android:name=".ui.activities.AccountsActivity_"
+            android:name=".ui.activities.SocialActivity_"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.activities.ScanerActivity_"
@@ -34,13 +33,7 @@
             android:name=".ui.activities.QRCodeActivity_"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".ui.activities.login.LoginFacebookActivity_"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".ui.activities.login.LoginSnapActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".ui.activities.login.LoginInstagramActivity"
+            android:name=".ui.activities.LoginFacebookActivity_"
             android:screenOrientation="portrait"/>
         <!-- ======================== Facebook ======================== -->
         <meta-data

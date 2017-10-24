@@ -1,4 +1,4 @@
-package com.proproject.butterfly.ui.activities.login;
+package com.proproject.butterfly.ui.activities;
 
 import android.content.Intent;
 import android.view.View;

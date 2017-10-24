@@ -1,6 +1,7 @@
 package com.proproject.butterfly.ui.activities;
 
 import android.view.View;
+import android.view.Window;
 
 import com.caizhenliang.mylibrary.util.SCApp;
 import com.proproject.butterfly.R;
@@ -10,10 +11,12 @@ import com.proproject.butterfly.ui.views.CustomFrontTextView;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.WindowFeature;
 
 /**
  *
  */
+@WindowFeature(Window.FEATURE_NO_TITLE)
 @EActivity(R.layout.activity_main)
 public class MainActivity extends BaseActivity {
 
@@ -29,14 +32,7 @@ public class MainActivity extends BaseActivity {
     public void initClick(View view) {
         switch (view.getId()) {
             case R.id.linSocial:
-                gotoActivity(AccountsActivity_.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putString(QRCodeActivity_.M_QRCODE_CONTENT_EXTRA, "suibianla");
-//                gotoActivity(QRCodeActivity_.class, bundle);
-                break;
             case R.id.linBusiness:
-                gotoActivity(AccountsActivity_.class);
-                break;
             case R.id.linProject:
                 gotoActivity(AccountsActivity_.class);
                 break;

@@ -13,11 +13,11 @@
     <string name="activity_main_business">Business</string>
     <string name="activity_main_project">Project</string>
     <string name="activity_main_contentDescription_imagebutton">imagebutton</string>
-    <!--AccountsActivity-->
-    <string name="activity_accounts_accounts">Accounts</string>
-    <string name="activity_accounts_facebook"><u>Facebook</u></string>
-    <string name="activity_accounts_snap"><u>Snap</u></string>
-    <string name="activity_accounts_instagram"><u>Instagram</u></string>
+    <!--SocialActivity-->
+    <string name="activity_accounts_accounts">Social</string>
+    <string name="activity_accounts_facebook">Facebook</string>
+    <string name="activity_accounts_snap">Snapchat</string>
+    <string name="activity_accounts_instagram">Instagram</string>
     <!--LoginActivity-->
     <string name="activity_login_title_facebook">Facebook</string>
     <string name="activity_login_title_snap">Snap</string>
@@ -26,6 +26,7 @@
     <string name="activity_qrcode_title">QRCode</string>
     <!--ScanerActivity-->
     <string name="activity_scaner_title">Scaner</string>
+    <string name="activity_accounts_create_qr">Create QR</string>
 
 
 </resources>

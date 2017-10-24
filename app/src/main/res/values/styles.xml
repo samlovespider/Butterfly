@@ -1,12 +1,12 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="ActivityTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="ActivityTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:windowAnimationStyle">@style/activity_fade_in_out</item>
     </style>
 
@@ -25,14 +25,12 @@
     <style name="activity_accounts_textview">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@color/activity_main_text_normal</item>
+        <item name="android:textColor">@color/selector_activity_main_btn</item>
         <item name="android:textSize">20sp</item>
     </style>
 
     <!--=================Switch=================-->
-    <style name="activity_accounts_switch" parent="Theme.AppCompat.Light">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+    <style name="activity_accounts_switch" parent="Theme.AppCompat">
         <!-- Active thumb color & Active track color(30% transparency)
             switch 打开时的拇指按钮的颜色 轨迹颜色默认为30%这个颜色 -->
         <item name="colorControlActivated">@color/limegreen</item>
@@ -43,7 +41,7 @@
     </style>
 
     <!--=================LINE=================-->
-    <style name="Line_horizontal">
+    <style name="Line_horizontal" parent="BaseLine_horizontal">
         <item name="android:layout_width">150dp</item>
         <item name="android:layout_height">1dp</item>
         <item name="android:background">@color/darkgrey</item>
@@ -52,6 +50,12 @@
     <style name="activity_main_line_horizontal" parent="Line_horizontal">
         <item name="android:layout_marginTop">35dp</item>
         <item name="android:background">@drawable/selector_activity_main_line</item>
+    </style>
+
+    <style name="activity_accounts_line" parent="BaseLine_horizontal">
+        <item name="android:layout_width">160dp</item>
+        <item name="android:layout_marginRight">40dp</item>
+        <item name="android:background">@color/main_text_normal</item>
     </style>
 
     <!--=================Animation=================-->

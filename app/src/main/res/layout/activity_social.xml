@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/view_action_bar"/>
+
+    <!--First Line-->
+    <RelativeLayout
+        android:id="@+id/linLayFacebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:padding="20dp">
+
+        <Button
+            android:id="@+id/btnFacebook"
+            android:background="@null"
+            style="@style/activity_accounts_textview"
+            android:textColor="@color/selector_activity_main_btn"
+            android:text="@string/activity_accounts_facebook"
+            android:textAllCaps="false"/>
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/swFacebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/lineFace"
+            android:theme="@style/activity_accounts_switch"/>
+
+        <View
+            android:id="@+id/lineFace"
+            style="@style/activity_accounts_line"
+            android:layout_below="@+id/btnFacebook"/>
+    </RelativeLayout>
+
+    <!--Second Line-->
+    <RelativeLayout
+        android:id="@+id/linLaySnap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linLayFacebook"
+        android:layout_alignRight="@+id/linLayFacebook"
+        android:layout_below="@+id/linLayFacebook"
+        android:padding="20dp">
+
+        <Button
+            android:id="@+id/btnSnap"
+            style="@style/activity_accounts_textview"
+            android:background="@color/transparent"
+            android:text="@string/activity_accounts_snap"
+            android:textAllCaps="false"/>
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/swSnap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/lineSnap"
+            android:theme="@style/activity_accounts_switch"/>
+
+        <View
+            android:id="@+id/lineSnap"
+            style="@style/activity_accounts_line"
+            android:layout_below="@+id/btnSnap"/>
+    </RelativeLayout>
+
+    <!--Third Line-->
+    <RelativeLayout
+        android:id="@+id/linLayInstagram"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linLaySnap"
+        android:layout_alignRight="@+id/linLaySnap"
+        android:layout_below="@+id/linLaySnap"
+        android:padding="20dp">
+
+        <Button
+            android:id="@+id/btnInstagram"
+            style="@style/activity_accounts_textview"
+            android:background="@color/transparent"
+            android:text="@string/activity_accounts_instagram"
+            android:textAllCaps="false"/>
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/swInstagram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/lineInstagram"
+            android:theme="@style/activity_accounts_switch"/>
+
+        <View
+            android:id="@+id/lineInstagram"
+            style="@style/activity_accounts_line"
+            android:layout_below="@+id/btnInstagram"/>
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@null"
+        android:text="@string/activity_accounts_create_qr"
+        android:textAllCaps="false"
+        android:textColor="@color/selector_activity_main_btn"
+        android:textSize="20sp"/>
+</RelativeLayout>

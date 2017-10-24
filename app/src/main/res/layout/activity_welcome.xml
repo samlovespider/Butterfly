@@ -36,5 +36,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:text="@string/activity_welcome_copyright"
-        android:textColor="@color/main_text_normal"/>
+        android:textColor="@color/main_text_selected"/>
 </RelativeLayout>
