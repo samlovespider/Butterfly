@@ -97,6 +97,7 @@ public class MainActivity extends BaseActivity {
     public void initClick(View view) {
         switch (view.getId()) {
             case R.id.linSocial:
+
                 gotoActivity(AccountsActivity_.class);
 //                Bundle bundle = new Bundle();
 //                bundle.putString(QRCodeActivity_.M_QRCODE_CONTENT_EXTRA, "suibianla");
