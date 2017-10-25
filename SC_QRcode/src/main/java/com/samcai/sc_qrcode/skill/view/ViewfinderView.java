@@ -34,7 +34,7 @@ public final class ViewfinderView extends View {
     /**
      * 非扫描区域的背景颜色。
      */
-    private final int SHADOW_COLOR = Color.parseColor("#7d000000");
+    private final int SHADOW_COLOR = Color.parseColor("#00000000");
 
     /**
      * 刷新界面的时间
@@ -121,7 +121,7 @@ public final class ViewfinderView extends View {
         // 画扫描框边上的角，总共8个部分
         int cornerWidth = (int) (density * CORNER_WIDTH);
         int cornerLength = (int) (density * CORNER_LENGTH);
-        mPaint.setColor(Color.GREEN);
+        mPaint.setColor(Color.BLACK);
         canvas.drawRect(frame.left, frame.top, frame.left + cornerLength, frame.top + cornerWidth, mPaint);
         canvas.drawRect(frame.left, frame.top, frame.left + cornerWidth, frame.top + cornerLength, mPaint);
         canvas.drawRect(frame.right - cornerLength, frame.top, frame.right, frame.top + cornerWidth, mPaint);

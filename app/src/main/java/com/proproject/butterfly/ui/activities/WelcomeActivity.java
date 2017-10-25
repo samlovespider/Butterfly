@@ -15,6 +15,7 @@ public class WelcomeActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        //
         goMain();
     }
 

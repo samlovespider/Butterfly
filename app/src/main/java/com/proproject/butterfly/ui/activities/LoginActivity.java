@@ -2,6 +2,7 @@ package com.proproject.butterfly.ui.activities;
 
 import android.content.Intent;
 import android.view.View;
+import android.view.Window;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -19,18 +20,22 @@ import com.proproject.butterfly.event.FacebookLogoutEvent;
 
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.WindowFeature;
 
+@WindowFeature(Window.FEATURE_NO_TITLE)
 @EActivity(R.layout.activity_login_facebook)
-public class LoginFacebookActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity {
 
     @ViewById(R.id.login_button)
-    LoginButton loginButton;
+    LoginButton login_button;
 
     private CallbackManager mCallbackManager;
     private ProfileTracker mProfileTracker;
 
     @Override
     public void initView() {
+        //
+        ftActionBar.setText(R.string.activity_login_title);
 
         mCallbackManager = CallbackManager.Factory.create();
         LoginManager.getInstance().registerCallback(mCallbackManager,
@@ -50,7 +55,7 @@ public class LoginFacebookActivity extends BaseActivity {
                         logW(exception);
                     }
                 });
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (AccessToken.getCurrentAccessToken() != null) {
@@ -68,9 +73,6 @@ public class LoginFacebookActivity extends BaseActivity {
                 logW("onCurrentProfileChanged: id ", currentProfile.getId());
             }
         };
-
-        mActionBar.setDisplayHomeAsUpEnabled(true);
-        mActionBar.setTitle(R.string.activity_login_title_facebook);
     }
 
 

@@ -5,6 +5,11 @@
                 android:layout_height="match_parent"
                 tools:context="com.proproject.butterfly.ui.activities.MainActivity">
 
+    <include
+        android:id="@+id/title"
+        layout="@layout/view_action_bar"
+        android:visibility="gone"/>
+
     <RelativeLayout
         android:id="@+id/relTitle"
         android:layout_width="match_parent"

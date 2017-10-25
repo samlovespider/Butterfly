@@ -33,7 +33,7 @@
             android:name=".ui.activities.QRCodeActivity_"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".ui.activities.LoginFacebookActivity_"
+            android:name=".ui.activities.LoginActivity_"
             android:screenOrientation="portrait"/>
         <!-- ======================== Facebook ======================== -->
         <meta-data

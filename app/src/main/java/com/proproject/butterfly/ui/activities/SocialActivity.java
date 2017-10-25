@@ -1,5 +1,6 @@
 package com.proproject.butterfly.ui.activities;
 
+import android.os.Bundle;
 import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 import android.view.Window;
@@ -12,7 +13,6 @@ import com.proproject.butterfly.base.BaseActivity;
 import com.proproject.butterfly.constant.Constants;
 import com.proproject.butterfly.event.FacebookLoginEvent;
 import com.proproject.butterfly.event.FacebookLogoutEvent;
-import com.proproject.butterfly.ui.views.CustomFrontTextView;
 
 import org.androidannotations.annotations.CheckedChange;
 import org.androidannotations.annotations.Click;
@@ -28,9 +28,6 @@ public class SocialActivity extends BaseActivity {
     // LOG STATE
     public static final int LOGSTATE_LOGINED = 1;
     public static final int LOGSTATE_LOGOUT = -1;
-    //
-    @ViewById(R.id.ftActionBar)
-    CustomFrontTextView ftActionBar;
     //
     @ViewById(R.id.btnFacebook)
     Button btnFacebook;
@@ -96,16 +93,14 @@ public class SocialActivity extends BaseActivity {
         setSwitchState(swFacebook, false, mFacebookState);
     }
 
-    @Click({R.id.btnFacebook, R.id.btnSnap, R.id.btnInstagram})
+    @Click({R.id.btnQR})
     @Override
     public void initClick(View view) {
         switch (view.getId()) {
-            case R.id.btnFacebook:
-                gotoActivity(LoginFacebookActivity_.class);
-                break;
-            case R.id.btnSnap:
-                break;
-            case R.id.btnInstagram:
+            case R.id.btnQR:
+                Bundle bundle = new Bundle();
+                bundle.putString(QRCodeActivity_.M_QRCODE_CONTENT_EXTRA, "https://www.facebook.com/zhenliang.cai.9");
+                gotoActivity(QRCodeActivity_.class,bundle);
                 break;
         }
     }

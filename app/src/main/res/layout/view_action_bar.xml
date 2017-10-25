@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
     <com.proproject.butterfly.ui.views.CustomFrontTextView
         android:id="@+id/ftActionBar"
@@ -14,4 +13,13 @@
         android:text="@string/activity_main_title"
         android:textColor="@color/main_text_normal"
         android:textSize="@dimen/action_bar_title_text_size"/>
-</LinearLayout>
+
+    <ImageButton
+        android:id="@+id/ibBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/ic_actionbar_back"/>
+
+</RelativeLayout>

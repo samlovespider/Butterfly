@@ -1,6 +1,7 @@
 package com.proproject.butterfly.ui.activities;
 
 import android.graphics.Bitmap;
+import android.view.Window;
 import android.widget.ImageView;
 
 import com.google.zxing.BarcodeFormat;
@@ -15,9 +16,11 @@ import com.proproject.butterfly.base.BaseActivity;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.Extra;
 import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.WindowFeature;
 
 import java.util.Hashtable;
 
+@WindowFeature(Window.FEATURE_NO_TITLE)
 @EActivity(R.layout.activity_qrcode)
 public class QRCodeActivity extends BaseActivity {
 
@@ -30,8 +33,7 @@ public class QRCodeActivity extends BaseActivity {
     @Override
     public void initView() {
         //
-        mActionBar.setDisplayHomeAsUpEnabled(true);
-        mActionBar.setTitle(R.string.activity_qrcode_title);
+        ftActionBar.setText(R.string.activity_qrcode_title);
 
         if (mQrcodeContent != null && !mQrcodeContent.isEmpty()) {
             Bitmap bitmap = encodeAsBitmap(mQrcodeContent);

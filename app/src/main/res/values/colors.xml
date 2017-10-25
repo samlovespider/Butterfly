@@ -4,11 +4,10 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="main_text_normal">@color/black</color>
+    <color name="main_text_normal">#474646</color>
     <color name="main_text_selected">@color/darkgrey</color>
 
     <color name="activity_main_text_normal">@color/main_text_normal</color>
     <color name="activity_main_text_selected">@color/main_text_selected</color>
-
 
 </resources>

@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     tools:context="com.proproject.butterfly.ui.activities.WelcomeActivity">
 
+    <include
+        android:id="@+id/title"
+        layout="@layout/view_action_bar"
+        android:visibility="gone"/>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

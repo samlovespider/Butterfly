@@ -14,17 +14,17 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
         android:gravity="center"
         android:padding="20dp">
 
         <Button
             android:id="@+id/btnFacebook"
-            android:background="@null"
             style="@style/activity_accounts_textview"
-            android:textColor="@color/selector_activity_main_btn"
+            android:background="@null"
             android:text="@string/activity_accounts_facebook"
-            android:textAllCaps="false"/>
+            android:textAllCaps="false"
+            android:textColor="@color/selector_activity_main_btn"/>
 
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/swFacebook"
@@ -103,6 +103,7 @@
     </RelativeLayout>
 
     <Button
+        android:id="@+id/btnQR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

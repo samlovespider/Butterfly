@@ -3,12 +3,17 @@ package com.proproject.butterfly.base;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 
 import com.caizhenliang.mylibrary.ui.activity.MyBaseActivity;
 import com.proproject.butterfly.BuildConfig;
+import com.proproject.butterfly.R;
+import com.proproject.butterfly.ui.views.CustomFrontTextView;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
 
 /**
  * Created by caizhenliang on 2017/8/18.
@@ -16,9 +21,19 @@ import org.androidannotations.annotations.EActivity;
 @EActivity
 public abstract class BaseActivity extends MyBaseActivity {
 
+    @ViewById(R.id.ftActionBar)
+    protected CustomFrontTextView ftActionBar;
+    @ViewById(R.id.ibBack)
+    protected ImageButton ibBack;
+
     @AfterViews
     @Override
     abstract public void initView();
+
+    @Click(R.id.ibBack)
+    protected void onBack(View v) {
+        onBackPressed();
+    }
 
     @Override
     public void logW(Object o) {
