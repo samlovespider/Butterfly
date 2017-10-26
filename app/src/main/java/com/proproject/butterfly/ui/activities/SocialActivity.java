@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.Toast;
 
 import com.facebook.AccessToken;
 import com.proproject.butterfly.R;
@@ -72,7 +73,7 @@ public class SocialActivity extends BaseActivity {
             mFacebookState = LOGSTATE_LOGOUT;
         }
         // get switch state which been saved when activity stopped
-        boolean isFacebook = Boolean.parseBoolean(mCache.getAsString(Constants.CACHE_FACEBOOK_SWITCH_STATE));
+        boolean isFacebook = (Boolean) mCache.getAsObject(Constants.CACHE_FACEBOOK);
         if (mFacebookState == LOGSTATE_LOGOUT) {
             isFacebook = false;
         }
@@ -98,9 +99,13 @@ public class SocialActivity extends BaseActivity {
     public void initClick(View view) {
         switch (view.getId()) {
             case R.id.btnQR:
-                Bundle bundle = new Bundle();
-                bundle.putString(QRCodeActivity_.M_QRCODE_CONTENT_EXTRA, "https://www.facebook.com/zhenliang.cai.9");
-                gotoActivity(QRCodeActivity_.class,bundle);
+                if (swFacebook.isChecked()) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString(QRCodeActivity_.M_QRCODE_CONTENT_EXTRA, "https://www.facebook.com/zhenliang.cai.9");
+                    gotoActivity(QRCodeActivity_.class, bundle);
+                } else {
+                    Toast.makeText(this, "Open at least one Social to create QRCode", Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
     }
@@ -110,6 +115,7 @@ public class SocialActivity extends BaseActivity {
     public void initCheckedChange(CompoundButton button, boolean isChecked) {
         switch (button.getId()) {
             case R.id.swFacebook:
+                mCache.put(Constants.CACHE_FACEBOOK, isChecked);
                 break;
             case R.id.swSnap:
                 break;
@@ -134,12 +140,4 @@ public class SocialActivity extends BaseActivity {
         }
         sw.setChecked(isChecked);
     }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        mCache.put(Constants.CACHE_FACEBOOK_SWITCH_STATE, swFacebook.isChecked() + "");
-        logW("swFacebook.isChecked()-" + swFacebook.isChecked());
-    }
-
 }
