@@ -22,6 +22,9 @@ import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.WindowFeature;
 import org.greenrobot.eventbus.Subscribe;
 
+import static com.proproject.butterfly.constant.Constants.CACHE_DISPLAY_NAME;
+import static com.proproject.butterfly.constant.Constants.CACHE_FACEBOOK_USER_ID;
+
 @WindowFeature(Window.FEATURE_NO_TITLE)
 @EActivity(R.layout.activity_social)
 public class SocialActivity extends BaseActivity {
@@ -100,8 +103,14 @@ public class SocialActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.btnQR:
                 if (swFacebook.isChecked()) {
+                    //
+                    String dis = mCache.getAsString(CACHE_DISPLAY_NAME) == null ? " " : mCache.getAsString(CACHE_DISPLAY_NAME);
+//                    String facebook = "zhenliang.cai.9";
+                    String facebook = mCache.getAsString(CACHE_FACEBOOK_USER_ID) == null ? " " : mCache.getAsString(CACHE_FACEBOOK_USER_ID);
+                    String content = dis + "'s ," + facebook + ",,,";
+                    //
                     Bundle bundle = new Bundle();
-                    bundle.putString(QRCodeActivity_.M_QRCODE_CONTENT_EXTRA, "https://www.facebook.com/zhenliang.cai.9");
+                    bundle.putString(QRCodeActivity_.M_QRCODE_CONTENT_EXTRA, content);
                     gotoActivity(QRCodeActivity_.class, bundle);
                 } else {
                     Toast.makeText(this, "Open at least one Social to create QRCode", Toast.LENGTH_SHORT).show();

@@ -33,15 +33,15 @@ import java.io.IOException;
 public final class CaptureActivity extends Activity implements SurfaceHolder.Callback {
 
     private static final String TAG = CaptureActivity.class.getSimpleName();
-    //摄像头管理类
+    //
     private CameraManager cameraManager;
     //handler
     private CaptureActivityHandler handler;
-    //activity计时类
+    //activity
     private InactivityTimer inactivityTimer;
-    //震动类
+    //
     private BeepManager beepManager;
-    //layout中的组件
+    //layout
     private SurfaceView scanPreview = null;
 
     private ViewfinderView mViewfinderView;

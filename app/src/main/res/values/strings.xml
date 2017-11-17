@@ -25,7 +25,7 @@
     <string name="activity_login_instagram">Instagram</string>
     <!--QRCodeActivity-->
     <string name="activity_qrcode_title">QRCode</string>
-    <!--ScanerActivity-->
+    ScanResultActivityvity-->
     <string name="activity_scaner_title">Scaner</string>
     <string name="activity_accounts_create_qr">Create QR</string>
 

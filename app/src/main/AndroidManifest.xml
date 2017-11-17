@@ -27,7 +27,7 @@
             android:name=".ui.activities.SocialActivity_"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".ui.activities.ScanerActivity_"
+            android:name=".ui.activities.ScanResultActivity_"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.activities.QRCodeActivity_"

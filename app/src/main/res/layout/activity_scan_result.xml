@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/view_action_bar"/>
+
+    <TextView
+        android:id="@+id/tvCodeInfor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:layout_marginTop="40dp"
+        android:text="Samcai"
+        android:textSize="34sp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <!---->
+        <LinearLayout
+            android:id="@+id/linSocial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <View
+                style="@style/Line_horizontal"
+                android:background="@drawable/selector_activity_main_line"/>
+
+            <Button
+                style="@style/activity_main_button"
+                android:clickable="false"
+                android:text="Open Facebook"/>
+
+            <View
+                style="@style/Line_horizontal"
+                android:background="@drawable/selector_activity_main_line"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

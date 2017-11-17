@@ -72,12 +72,11 @@ public class MainActivity extends BaseActivity {
         mQrcode.onActivityResult(requestCode, resultCode, data, new QrcodeCallback() {
             @Override
             public void onSuccess(@NonNull QrcodeInfo info) {
-                String textInfo = "Scan Result:\n  " + info.getResult() + "\nPicHeight:\n  " + info.getHeight() + "\nPicWidth:\n  " + info.getWidth();
-                logW(textInfo);
+                logW("Scan Result:\n  " + info.getResult() + "\nPicHeight:\n  " + info.getHeight() + "\nPicWidth:\n  " + info.getWidth());
                 //
                 Bundle bundle = new Bundle();
-                bundle.putString(ScanerActivity_.M_QRCODE_RESULT_EXTRA, textInfo);
-                gotoActivity(ScanerActivity_.class, bundle);
+                bundle.putString(ScanResultActivity_.M_QRCODE_RESULT_EXTRA, info.getResult());
+                gotoActivity(ScanResultActivity_.class, bundle);
             }
 
             @Override

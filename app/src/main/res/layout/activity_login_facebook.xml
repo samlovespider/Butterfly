@@ -7,11 +7,24 @@
         android:id="@+id/title"
         layout="@layout/view_action_bar"/>
 
+    <TextView
+        android:id="@+id/tvPickUpName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_pick_up_name"
+        android:padding="5dp"
+        android:text="Pick Display Name"
+        android:textAllCaps="false"
+        android:textSize="15sp"/>
+
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
+        android:layout_below="@+id/tvPickUpName"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="30dp"
