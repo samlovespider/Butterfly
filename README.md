@@ -4,12 +4,7 @@ Massey uni, programming project
 
 
 
-![fastjson](Bf-01.jpeg "fastjson")
+![butterfly](Bf-01.jpeg "butterfly")
+![butterfly](Bf-02.jpeg "butterfly")
+![butterfly](Bf-03.jpeg "butterfly")
 
-![Butterfly/Bf-01.jpeg]
-
-
-Butterfly/Bf-02.jpeg
-
-
-Butterfly/Bf-03.jpeg
